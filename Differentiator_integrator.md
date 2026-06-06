@@ -1,104 +1,252 @@
-INTEGRATOR AND DIFFERENTIATOR USING OP-AMP
+# INTEGRATOR AND DIFFERENTIATOR USING OP-AMP
 
-AIM
+## AIM
 
-To design and set up an integrator and differentiator circuit using op-amp.
+To design and set up an integrator and differentiator circuit using an operational amplifier (Op-Amp).
 
-APPARATUS REQUIRED
+---
 
-Power supply, CRO, function generator, bread board, op-amp, capacitor and resistors.
+## APPARATUS REQUIRED
 
-THEORY
+- Power Supply
+- CRO (Cathode Ray Oscilloscope)
+- Function Generator
+- Breadboard
+- Op-Amp
+- Capacitors
+- Resistors
+- Connecting Wires
 
-INTEGRATOR
+---
 
-Refer to the figure 1. This circuit performs the integration of the input waveform. The
+## THEORY
 
-output voltage 𝑉𝑜
+### Integrator
 
-can be expressed as	𝑉𝑜
+The integrator circuit performs mathematical integration of the input signal.
 
-= − 1
-𝑅𝐶
+The output voltage is given by:
 
-∫ 𝑉𝑖𝑑𝑡 + 𝑘 where k is the constant of
+\[
+V_o = -\frac{1}{RC}\int V_i\,dt + k
+\]
 
-integration which depends upon the value of 𝑉𝑜 at t = 0. The peak of the output waveform 𝑉𝑇
+where:
 
-is given by the expression 𝑉𝑇
+- \(V_o\) = Output voltage
+- \(V_i\) = Input voltage
+- \(R\) = Resistance
+- \(C\) = Capacitance
+- \(k\) = Constant of integration
 
-=  𝑉𝑇 , where T is the time period of the input square wave.
-4𝑅𝐶
+The peak output voltage is:
 
-Integrators are commonly used in analog computers and wave shaping networks. DIFFERENTIATOR
-If the input resistor of the inverting amplifier is replaced by a capacitor, it forms an inverting differentiator. The output of the circuit is the derivative of the input. Gain of the differentiator increases with increase in frequency, which makes the circuit unstable. This is a
+\[
+V_T = \frac{V_iT}{4RC}
+\]
 
-drawback of the circuit. The output voltage 𝑉𝑜
+where:
 
-can be expressed as 𝑉𝑜
+- \(T\) = Time period of the input square wave
 
-= −𝑅𝐹
+#### Applications
 
-𝐶𝑖
+- Analog computers
+- Wave shaping circuits
+- Signal processing systems
 
-𝑑𝑉𝑖.
-𝑑𝑡
+---
 
-Differentiator functions as high pass filter. At high frequency it becomes unstable and breaks into oscillations. Input impedance decreases with increase in frequency which makes the circuit very susceptible to high frequency noise. Both stability and high frequency noise problems can be reduced significantly by additional circuit elements.
+### Differentiator
 
-DESIGN AND CIRCUIT DIAGRAMS
+A differentiator is obtained by replacing the input resistor of an inverting amplifier with a capacitor.
 
-DESIGN OF INTEGRATOR
+The output voltage is:
 
-Let the input frequency be 1 kHz. The frequency at which the integrator gives unity gain
+\[
+V_o = -R_F C_i \frac{dV_i}{dt}
+\]
+
+where:
+
+- \(R_F\) = Feedback resistance
+- \(C_i\) = Input capacitance
+
+#### Characteristics
+
+- Acts as a High Pass Filter
+- Gain increases with frequency
+- Susceptible to high-frequency noise
+- May become unstable at high frequencies
+
+Additional circuit elements can be used to improve stability and reduce noise.
+
+---
+
+## DESIGN AND CIRCUIT DIAGRAMS
+
+### Design of Integrator
+
+Given:
+
+- Input Frequency = 1 kHz
+- Capacitance, \(C = 0.01 \mu F\)
+
+The unity gain frequency is:
+
+\[
+f = \frac{1}{2\pi R_1 C}
+\]
+
+Calculating:
+
+\[
+R_1 = 15.9\,k\Omega
+\]
+
+Standard value used:
+
+- \(R_1 = 15\,k\Omega\)
+
+Feedback resistor:
+
+- \(R_2 = 470\,k\Omega\)
+
+#### Purpose of \(R_2\)
+
+- Reduces low-frequency gain
+- Minimizes effects of DC offset voltage
+- Typically selected as 10 times or more than \(R_1\)
+
+---
+
+### Design of Differentiator
+
+Given:
+
+- Frequency = 1 kHz
+- Capacitance \(C = 0.01 \mu F\)
+
+Using:
+
+\[
+f = \frac{1}{2\pi RC}
+\]
+
+Calculating:
+
+\[
+R = 15.9\,k\Omega
+\]
+
+Standard value used:
+
+- \(R = 15\,k\Omega\)
+
+---
+
+## CIRCUIT DIAGRAMS
+
+### Figure 1: Integrator Circuit
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/d83a10ad-2401-470d-ab67-d2c06c5489c3" />
+
+- Input resistor \(R_1 = 15\,k\Omega\)
+- Feedback capacitor \(C = 0.01 \mu F\)
+- Feedback resistor \(R_2 = 470\,k\Omega\)
+
+### Figure 2: Differentiator Circuit
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/4232d4da-f57b-4fed-9037-9beaae96fbd9" />
 
 
-output is given by,
+- Input capacitor \(C = 0.01 \mu F\)
+- Feedback resistor \(R = 15\,k\Omega\)
 
-f 		1 2 R1C
+---
 
-Let C = 0.01μF. then R1 = 15.9 kΩ. Use 15 kΩ std.
+## PROCEDURE
 
-R2 470 kΩ
+### Integrator
 
+1. Set up the integrator circuit as shown in the circuit diagram.
+2. Apply a square wave input of:
+   - Amplitude: ±5 V (10 Vpp)
+   - Frequency: 1 kHz
+3. Observe both input and output waveforms simultaneously on the CRO.
+4. Vary the DC offset of the square wave input and observe the changes in the output waveform.
+5. Apply a triangular wave input and observe the output waveform.
+6. Apply a sine wave input and observe the output waveform.
+7. Record all observations.
 
+---
 
+### Differentiator
 
+1. Set up the differentiator circuit as shown in the circuit diagram.
+2. Apply a square wave input of:
+   - Amplitude: ±5 V (10 Vpp)
+   - Frequency: 1 kHz
+3. Observe both input and output waveforms simultaneously on the CRO.
+4. Apply a triangular wave input and observe the output waveform.
+5. Apply a sine wave input and observe the output waveform.
+6. Record all observations.
 
+---
 
+## WAVEFORMS
 
-Vi
-Vo
-
-
-
-Fig. 1. Circuit diagram of Integrator	Fig. 2. Circuit diagram of Differentiator
-
-The resistor R2 in the integrator is provided to attenuate low frequency signals, particularly input dc offset voltage that may be present. Typically, the value of R2 is selected as 10 times R1 or more. Select the value of R2 as 470 k.
-
-DESIGN OF DIFFERENTIATOR
-
-We have, f 
-2 RC
-
-Let C = 0.01μF. then R = 15.9 kΩ. Use 15 kΩ std.
-
-PROCEDURE
-
-INTEGRATOR
-
-1.Set up the integrator circuit as shown in figure. Give a rectangular wave of ±5V (10V pp) and 1 kHz frequency at the input and observe the input and output simultaneously on CRO.
-2.Vary the dc offset of the square wave input and observe the difference in the output waveform.
-3.Repeat the experiment by feeding triangular wave and sine wave at the input and observe the output.
-DIFFERENTIATOR
-
-1.Set up the differentiator circuit as shown in figure. Give a rectangular wave of ±5V (10V pp) and 1 kHz frequency at the input and observe the input and output
-
-simultaneously on CRO.
-2.Repeat the experiment by feeding triangular wave and sine wave at the input and observe the output.
+### Integrator Output
+<img width="572" height="286" alt="image" src="https://github.com/user-attachments/assets/945e6716-486c-42e3-9ae0-ef74cc65cee8" />
 
 
-WAVEFORMS
-Vi	Vi
-Vo	Vo
-Fig 3. Integrator output	Fig 4. Differentiator output
+
+
+**Input:** Square Wave
+
+**Output:** Triangular Wave
+
+*(Refer Figure 3)*
+
+---
+
+### Differentiator Output
+<img width="226" height="173" alt="image" src="https://github.com/user-attachments/assets/e22c9e29-181a-48db-a0ee-0da0e4aa072f" />
+
+
+
+**Input:** Square Wave
+
+**Output:** Positive and Negative Spikes
+
+*(Refer Figure 4)*
+
+---
+
+## OBSERVATIONS
+
+### Integrator
+
+| Input Waveform | Output Waveform |
+|---------------|----------------|
+| Square Wave | Triangular Wave |
+| Triangular Wave | Parabolic Wave |
+| Sine Wave | Cosine Wave |
+
+---
+
+### Differentiator
+
+| Input Waveform | Output Waveform |
+|---------------|----------------|
+| Square Wave | Positive and Negative Spikes |
+| Triangular Wave | Square Wave |
+| Sine Wave | Cosine Wave |
+
+---
+
+## RESULT
+
+- The Op-Amp Integrator circuit was designed and tested successfully.
+- The Op-Amp Differentiator circuit was designed and tested successfully.
+- The expected output waveforms were observed for various input waveforms.
+
+---
